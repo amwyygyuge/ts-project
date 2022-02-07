@@ -44,11 +44,5 @@
     "dev": "webpack serve --config=config/webpack.config.js",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "format": "eslint --fix 'src/**/*.{js,ts,tsx}'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint HUSKY_GIT_PARAMS"
-    }
   }
 }

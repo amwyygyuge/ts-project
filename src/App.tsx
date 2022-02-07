@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import demo from "./demo.json";
 
 const d = "dawda";
-const c = "dadwa";
+
 function App() {
   const [value, setValue] = useState(demo);
   const onChange = (v) => {

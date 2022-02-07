@@ -13,6 +13,8 @@
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
@@ -42,22 +44,5 @@
     "dev": "webpack serve --config=config/webpack.config.js",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "format": "eslint --fix 'src/**/*.{js,ts,tsx}'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node scripts/validate-branch-name.js && yarn update-core-dependencies && lint-staged",
-      "commit-msg": "node scripts/validate-commit-msg.js",
-      "post-merge": "node scripts/update-dependencies.js",
-      "pre-push": "yarn tsc && yarn clean:build"
-    }
-  },
-  "lint-staged": {
-    "*.(j|t)s?(x)": [
-      "eslint --quiet --fix",
-      "git add"
-    ],
-    "*.json": [
-      "eslint --quiet"
-    ]
   }
 }

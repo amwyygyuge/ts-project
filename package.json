@@ -51,6 +51,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS"
     }
   },

@@ -21,6 +21,8 @@
     "@typescript-eslint/parser": "^5.10.2",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.3.0",
     "eslint": "^8.8.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
@@ -30,7 +32,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.4",
+    "husky": "4.3.8",
     "lerna": "^4.0.0",
     "lint-staged": "^12.3.3",
     "path": "^0.12.7",
@@ -43,6 +45,21 @@
   "scripts": {
     "dev": "webpack serve --config=config/webpack.config.js",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "format": "eslint --fix 'src/**/*.{js,ts,tsx}'"
+    "format": "eslint --fix 'src/**/*.{js,ts,tsx}'",
+    "commits": "git-cz",
+    "commits:all": "git add . && git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint"
+    ],
+    "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+      "prettier --write"
+    ]
   }
 }

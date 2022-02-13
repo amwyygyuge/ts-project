@@ -1,6 +1,7 @@
 const flexBugsFixes = require("postcss-flexbugs-fixes");
 const presetEnv = require("postcss-preset-env");
 const normalize = require("postcss-normalize");
+const paths = require("./paths");
 
 const { isDevelopment, imageInlineSizeLimit } = require("./constants");
 
@@ -39,6 +40,7 @@ const getCssLoaders = (importLoaders) => [
 
 const urlLoader = {
   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+  include: paths.assets,
   type: "asset",
   parser: {
     dataUrlCondition: {
@@ -49,11 +51,13 @@ const urlLoader = {
 
 const fontLoader = {
   test: /\.(eot|svg|ttf|woff|woff2?)$/,
+  include: paths.assets,
   type: "asset/resource",
 };
 
 const babelLoader = {
   test: /\.(tsx?|js|ts)$/,
+  include: paths.appSrc,
   loader: "babel-loader",
   options: { cacheDirectory: true },
   exclude: /node_modules/,

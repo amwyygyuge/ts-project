@@ -1,4 +1,5 @@
 import React from "react";
+import { Test } from "@/Components";
 
 interface IProps {
   name: string;
@@ -6,10 +7,10 @@ interface IProps {
 }
 
 function App(props: IProps) {
-  const { name, age } = props;
+  const { name, wrong } = props;
   return (
     <div className="app">
-      <span>{`Hello!dadwad I'm ${name}, ${age} years old.`}</span>
+      <span>{`Hello!dadwad Iddd'm ${name}, ${wrong} years old.`}</span>
     </div>
   );
 }

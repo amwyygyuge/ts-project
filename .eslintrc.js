@@ -1,3 +1,7 @@
+const OFF = 0;
+// const WARN = 1;
+const ERROR = 2;
+
 module.exports = {
   env: {
     browser: true,
@@ -21,6 +25,14 @@ module.exports = {
       modules: true,
     },
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".tsx", ".ts", ".js", ".json"],
+      },
+      typescript: {},
+    },
+  },
   plugins: [
     "react",
     "react-hooks",
@@ -35,5 +47,15 @@ module.exports = {
       { vars: "all", args: "none", ignoreRestSiblings: false },
     ],
     "react/jsx-filename-extension": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/no-extraneous-dependencies": [ERROR, { devDependencies: true }],
+    "import/extensions": OFF,
+    "import/prefer-default-export": OFF,
+    "import/no-unresolved": [
+      OFF,
+      {
+        caseSensitive: false,
+      },
+    ],
   },
 };

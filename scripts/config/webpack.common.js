@@ -5,9 +5,13 @@ const CopyPlugin = require("copy-webpack-plugin");
 // 构建进度
 const WebpackBar = require("webpackbar");
 // ts 检查
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 // ts 路径引入
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+// eslint
+const ESLintPlugin = require("eslint-webpack-plugin");
+
+const path = require("path");
 
 const paths = require("../paths");
 const { isDevelopment } = require("../constants");
@@ -16,7 +20,7 @@ const {
   fontLoader,
   urlLoader,
   babelLoader,
-  tsLoader,
+  // tsLoader,
 } = require("../loader");
 
 module.exports = {
@@ -32,7 +36,7 @@ module.exports = {
   },
   module: {
     rules: [
-      tsLoader,
+      // tsLoader,
       babelLoader,
       {
         test: /\.css$/,
@@ -84,14 +88,27 @@ module.exports = {
       name: isDevelopment ? "RUNNING" : "BUNDLING",
       color: isDevelopment ? "#52c41a" : "#722ed1",
     }),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        diagnosticOptions: {
-          semantic: true,
-          syntactic: true,
-        },
-        mode: "write-references",
-      },
+    // new ForkTsCheckerWebpackPlugin({
+    //   typescript: {
+    //     diagnosticOptions: {
+    //       semantic: true,
+    //       syntactic: true,
+    //     },
+    //     mode: "write-references",
+    //   },
+    // }),
+
+    new ESLintPlugin({
+      // Plugin options
+      extensions: ["js", "mjs", "jsx", "ts", "tsx"],
+      eslintPath: require.resolve("eslint"),
+      failOnError: true,
+      context: paths.appSrc,
+      cache: true,
+      cacheLocation: path.resolve(paths.cache, ".eslintcache"),
+      // ESLint class options
+      cwd: paths.root,
+      resolvePluginsRelativeTo: __dirname,
     }),
   ],
 };

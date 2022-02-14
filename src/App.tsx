@@ -1,14 +1,16 @@
 import React from "react";
-// import { Test } from "@/Components/";
+import { Test } from "./components";
 
 interface IProps {
   name: string;
 }
+
 function App(props: IProps) {
   const { name } = props;
   return (
     <div className="app">
-      <span>{`Hello!dadwad Iddd'm ${name},  years old.`}</span>
+      <Test />
+      <span>{`Hello!dadwad dsdasIddd'm ${name},  dddyears old.`}</span>
     </div>
   );
 }

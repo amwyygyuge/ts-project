@@ -9,6 +9,7 @@ const { PROJECT_PATH } = require("./constants");
 
 module.exports = {
   appIndex: path.resolve(PROJECT_PATH, "src/index"),
+  root: path.resolve(PROJECT_PATH, "."),
   appSrc: path.resolve(PROJECT_PATH, "src"),
   build: path.resolve(PROJECT_PATH, "dist"),
   public: path.resolve(PROJECT_PATH, "public"),
@@ -17,4 +18,6 @@ module.exports = {
   utils: path.resolve(PROJECT_PATH, "src/utils"),
   tsConfig: path.resolve(PROJECT_PATH, "tsconfig.json"),
   assets: path.resolve(PROJECT_PATH, "assets"),
+  nodeModule: path.resolve(PROJECT_PATH, "node_modules"),
+  cache: path.resolve(PROJECT_PATH, "node_modules", ".cache"),
 };

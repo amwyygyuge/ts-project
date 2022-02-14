@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react";
 import { Button } from "antd";
-// import { Test } from "./components";
 import { Test } from "@/Components/index";
 import path from "../assets/test.jpg";
 

@@ -18,13 +18,10 @@ module.exports = merge(common, {
       logging: "info",
       overlay: true,
     },
+    // 代理
+    proxy: {},
   },
   optimization: {
     minimize: false,
-    minimizer: [],
-    splitChunks: {
-      chunks: "all",
-      minSize: 0,
-    },
   },
 });

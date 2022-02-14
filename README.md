@@ -98,8 +98,7 @@ package.json
 
 https://github.com/okonet/lint-staged#readme
 
-
 ## TODO
+
 1. ts paths 路径错误
 2. 图片引用类型错误
-3. ForkTsCheckerWebpackPlugin 无效

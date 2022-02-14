@@ -1,7 +1,14 @@
+//  自动引入js
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// 复制资源文件
 const CopyPlugin = require("copy-webpack-plugin");
+// 构建进度
 const WebpackBar = require("webpackbar");
+// ts 检查
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// ts 路径引入
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+
 const paths = require("../paths");
 const { isDevelopment } = require("../constants");
 const {
@@ -9,6 +16,7 @@ const {
   fontLoader,
   urlLoader,
   babelLoader,
+  tsLoader,
 } = require("../loader");
 
 module.exports = {
@@ -24,6 +32,7 @@ module.exports = {
   },
   module: {
     rules: [
+      tsLoader,
       babelLoader,
       {
         test: /\.css$/,
@@ -33,7 +42,12 @@ module.exports = {
       urlLoader,
     ],
   },
-
+  optimization: {
+    // 分 chunks
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {
@@ -62,6 +76,9 @@ module.exports = {
           },
         },
       ],
+    }),
+    new TsconfigPathsPlugin({
+      configFile: paths.tsConfig,
     }),
     new WebpackBar({
       name: isDevelopment ? "RUNNING" : "BUNDLING",

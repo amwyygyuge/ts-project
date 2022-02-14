@@ -1,9 +1,37 @@
 const flexBugsFixes = require("postcss-flexbugs-fixes");
 const presetEnv = require("postcss-preset-env");
 const normalize = require("postcss-normalize");
+// 分离css
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const paths = require("./paths");
 
 const { isDevelopment, imageInlineSizeLimit } = require("./constants");
+
+const babelOptions = {
+  cacheDirectory: true,
+  presets: [
+    [
+      "@babel/preset-env",
+      {
+        modules: false,
+      },
+    ],
+    "@babel/preset-react",
+    // "@babel/preset-typescript",
+  ],
+  plugins: [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        corejs: {
+          version: 3,
+          proposals: true,
+        },
+        useESModules: true,
+      },
+    ],
+  ],
+};
 
 const postCSSLoader = {
   loader: "postcss-loader",
@@ -26,7 +54,7 @@ const postCSSLoader = {
 };
 
 const getCssLoaders = (importLoaders) => [
-  "style-loader",
+  isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
   {
     loader: "css-loader",
     options: {
@@ -56,10 +84,28 @@ const fontLoader = {
 };
 
 const babelLoader = {
-  test: /\.(tsx?|js|ts)$/,
+  test: /\.(js)$/,
   include: paths.appSrc,
   loader: "babel-loader",
-  options: { cacheDirectory: true },
+  options: babelOptions,
+  exclude: /node_modules/,
+};
+
+const tsLoader = {
+  test: /\.(tsx?)$/,
+  include: paths.appSrc,
+  use: [
+    {
+      loader: "babel-loader",
+      options: babelOptions,
+    },
+    {
+      loader: "ts-loader",
+      options: {
+        configFile: paths.configFile,
+      },
+    },
+  ],
   exclude: /node_modules/,
 };
 
@@ -69,4 +115,5 @@ module.exports = {
   fontLoader,
   urlLoader,
   babelLoader,
+  tsLoader,
 };

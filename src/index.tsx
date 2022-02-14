@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-// import "index.css";
+import "./index.css";
 
-ReactDOM.render(
-  <App name="vortesnail" age={25} />,
-  document.querySelector("#root")
-);
+ReactDOM.render(<App name="vortesnail" />, document.querySelector("#root"));

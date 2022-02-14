@@ -20,7 +20,8 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "noEmit": true
+    "noEmit": false,
+    "sourceMap": true
   },
   "exclude": ["node_modules", "dist", "public"],
   "files": ["./typings/file.d.ts"]

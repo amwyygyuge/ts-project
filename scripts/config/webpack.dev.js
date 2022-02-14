@@ -4,7 +4,7 @@ const { SERVER_HOST, SERVER_PORT } = require("../constants");
 
 module.exports = merge(common, {
   mode: "development",
-  devtool: "eval-source-map",
+  devtool: "cheap-module-source-map",
   target: "web",
   devServer: {
     // https://webpack.js.org/configuration/dev-server/#root
@@ -16,7 +16,11 @@ module.exports = merge(common, {
     client: {
       // 日志等级
       logging: "info",
-      overlay: true,
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+      progress: true,
     },
     // 代理
     proxy: {},

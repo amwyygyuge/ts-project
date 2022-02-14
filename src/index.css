@@ -2,3 +2,4 @@
   background-color: aquamarine;
   display: flex;
 }
+@import "~antd/dist/antd.css";

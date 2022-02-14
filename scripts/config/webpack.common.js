@@ -10,6 +10,7 @@ const WebpackBar = require("webpackbar");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 // eslint
 const ESLintPlugin = require("eslint-webpack-plugin");
+const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 
 const path = require("path");
 
@@ -97,7 +98,7 @@ module.exports = {
     //     mode: "write-references",
     //   },
     // }),
-
+    new ErrorOverlayPlugin(),
     new ESLintPlugin({
       // Plugin options
       extensions: ["js", "mjs", "jsx", "ts", "tsx"],

@@ -1,5 +1,8 @@
 import React, { lazy, Suspense } from "react";
-import { Test } from "./components";
+import { Button } from "antd";
+// import { Test } from "./components";
+import { Test } from "@/Components/index";
+import path from "../assets/test.jpg";
 
 interface IProps {
   name: string;
@@ -13,7 +16,16 @@ function App(props: IProps) {
   return (
     <div className="app">
       <Test />
-      <span>{`Hello!dadwad dsdasIddd'm ${name},  dddyears old.`}</span>
+      <span>{`Hello!dadwad dsdasIddd'm ${name},  ${name}}dddyears old.`}</span>
+      <Button
+        onClick={() => {
+          throw Error("sss");
+        }}
+        type="primary"
+      >
+        Button
+      </Button>
+      <image href={path} />
       <Suspense fallback={<div>loding</div>}>
         <LazyComponent />
       </Suspense>

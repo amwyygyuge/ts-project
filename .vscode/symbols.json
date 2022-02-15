@@ -3,8 +3,6 @@
   "files": {
     "typings/file.d.ts": "2022-02-13T14:51:04.056Z",
     "src/components/index.ts": "2022-02-13T14:51:04.053Z",
-    "src/utils/sum.ts": "2022-02-14T15:11:10.283Z",
-    "src/utils/__tests__/sum.test.ts": "2022-02-14T15:11:39.722Z",
-    "jest.config.ts": "2022-02-14T16:20:09.086Z"
+    "src/utils/sum.ts": "2022-02-14T15:11:10.283Z"
   }
 }

@@ -51,6 +51,7 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "import/no-extraneous-dependencies": [ERROR, { devDependencies: true }],
     "import/extensions": OFF,
+    "@typescript-eslint/no-unused-vars": OFF,
     "import/prefer-default-export": OFF,
     "import/no-unresolved": [
       OFF,

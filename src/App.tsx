@@ -1,15 +1,18 @@
 import React, { lazy, Suspense } from "react";
+
 import { Button } from "antd";
+
 import { Test } from "@/Components/index";
+
 import path from "../assets/test.jpg";
 
 interface IProps {
   name: string;
 }
-
 const LazyComponent = lazy(
   () => import("./components/LazyComponent/LazyComponent")
 );
+
 function App(props: IProps) {
   const { name } = props;
   return (

@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-  preset: "ts-jest",
+  preset: "ts-jest/presets/js-with-ts-esm",
   testEnvironment: "node",
   displayName: {
     name: "UT",
@@ -170,12 +170,12 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.(jsx?|tsx?)$": "ts-jest",
   },
   globals: {
     "ts-jest": {
       // isolatedModules: true,
-      tsConfigFile: "tsconfig.test.json",
+      tsconfig: "tsconfig.test.json",
     },
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

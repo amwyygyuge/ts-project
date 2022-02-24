@@ -1,18 +1,22 @@
 {
   "recommendations": [
-    "KnisterPeter.vscode-commitizen",
-    "WallabyJs.quokka-vscode",
+    "knisterpeter.vscode-commitizen",
+    "wallabyjs.quokka-vscode",
     "donjayamanne.githistory",
     "eamodio.gitlens",
-    "iBotMedia.tstools",
+    "ibotmedia.tstools",
     "styled-components.vscode-styled-components",
     "mikey.vscode-fileheader",
     "streetsidesoftware.code-spell-checker",
     "wix.vscode-import-cost",
-    "yzhang.markdown-all-in-one",
     "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
     "visualstudioexptteam.vscodeintellicode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "softwaredotcom.swdc-vscode",
+    "naumovs.color-highlight",
+    "kisstkondoros.vscode-gutter-preview",
+    "emilast.logfilehighlighter",
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme"
   ]
 }
